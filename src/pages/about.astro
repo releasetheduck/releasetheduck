@@ -1,0 +1,54 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE, LASTFM_URL } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`About — ${SITE_TITLE}`} description="About Release the Duck" />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="about-content">
+				<h1>About</h1>
+				<p>
+					I listen to music all day, every day. Hardcore punk before coffee, ambient during deep work,
+					post-rock on the commute, and whatever the algorithm throws at me in between.
+				</p>
+				<p>
+					This site is where I write about the albums and songs that stick with me. Sometimes it's a
+					proper review with thoughts on production and songwriting. Sometimes it's a quick journal entry
+					about why a specific track hit different on a Tuesday afternoon. No rules, no editorial calendar —
+					just an honest log of what I'm hearing.
+				</p>
+				<p>
+					If you want to see what I'm listening to right now, check my
+					<a href={LASTFM_URL} target="_blank">Last.fm</a>.
+				</p>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.about-content {
+		max-width: var(--max-width);
+		margin: 0 auto;
+		padding-top: 2em;
+	}
+	h1 {
+		margin-bottom: 1.5em;
+	}
+	p {
+		color: var(--text-muted);
+		font-size: 1.05em;
+	}
+	a {
+		color: var(--accent);
+	}
+</style>

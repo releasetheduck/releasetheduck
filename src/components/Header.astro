@@ -1,0 +1,95 @@
+---
+import { SITE_TITLE, LASTFM_URL } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+---
+
+<header>
+	<nav>
+		<a class="logo" href="/">
+			<span class="logo-symbol">▶</span>
+			<span class="logo-text">{SITE_TITLE}</span>
+		</a>
+		<div class="internal-links">
+			<HeaderLink href="/blog">Writing</HeaderLink>
+			<HeaderLink href="/about">About</HeaderLink>
+		</div>
+		<div class="social-links">
+			<a href={LASTFM_URL} target="_blank" title="Last.fm">
+				<span class="sr-only">Last.fm profile</span>
+				<svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+					<path d="M10.584 17.21l-.88-2.392s-1.43 1.594-3.573 1.594c-1.897 0-3.244-1.649-3.244-4.288 0-3.382 1.704-4.591 3.381-4.591 2.42 0 3.189 1.567 3.849 3.574l.88 2.749c.88 2.666 2.529 4.81 7.284 4.81 3.409 0 5.718-1.044 5.718-3.793 0-2.227-1.265-3.381-3.627-3.933l-1.758-.385c-1.21-.275-1.567-.77-1.567-1.594 0-.935.742-1.484 1.952-1.484 1.32 0 2.034.495 2.144 1.677l2.749-.33c-.22-2.474-1.924-3.492-4.729-3.492-2.474 0-4.893.935-4.893 3.932 0 1.87.907 3.051 3.189 3.601l1.87.44c1.402.33 1.869.907 1.869 1.704 0 1.017-.99 1.43-2.86 1.43-2.776 0-3.932-1.457-4.59-3.464l-.907-2.75c-1.155-3.573-2.997-4.893-6.653-4.893C2.144 5.333 0 7.89 0 12.233c0 4.18 2.144 6.434 5.993 6.434 3.106 0 4.591-1.457 4.591-1.457z"/>
+				</svg>
+			</a>
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		padding: 0 1.5em;
+		background: var(--bg);
+		border-bottom: 1px solid var(--border);
+		position: sticky;
+		top: 0;
+		z-index: 100;
+		backdrop-filter: blur(12px);
+		background: rgba(10, 10, 10, 0.9);
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		max-width: 960px;
+		margin: 0 auto;
+		height: 60px;
+	}
+	.logo {
+		display: flex;
+		align-items: center;
+		gap: 0.5em;
+		text-decoration: none;
+		color: var(--text);
+	}
+	.logo:hover { color: var(--accent); }
+	.logo-symbol {
+		font-size: 0.7em;
+		color: var(--accent);
+	}
+	.logo-text {
+		font-family: var(--font-display);
+		font-weight: 700;
+		font-size: 0.95em;
+		letter-spacing: -0.02em;
+		text-transform: lowercase;
+	}
+	.internal-links {
+		display: flex;
+		gap: 0;
+	}
+	.internal-links a {
+		font-family: var(--font-display);
+		font-size: 0.8em;
+		padding: 0.5em 1em;
+		color: var(--text-muted);
+		text-decoration: none;
+		transition: color 0.2s;
+		letter-spacing: -0.01em;
+	}
+	.internal-links a:hover,
+	.internal-links a.active {
+		color: var(--text);
+	}
+	.social-links {
+		display: flex;
+		align-items: center;
+	}
+	.social-links a {
+		color: var(--text-muted);
+		padding: 0.5em;
+		transition: color 0.2s;
+	}
+	.social-links a:hover { color: var(--accent); }
+	@media (max-width: 720px) {
+		.logo-text { font-size: 0.8em; }
+		.internal-links a { padding: 0.5em 0.6em; font-size: 0.75em; }
+	}
+</style>
